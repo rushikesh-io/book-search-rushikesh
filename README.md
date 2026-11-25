@@ -3,7 +3,9 @@
 A clean, responsive web app to **search books by title or author**, view their details, and keep favourites on a personal shelf.
 Built with **HTML, Tailwind CSS and vanilla JavaScript (ES modules)** — no frameworks.
 
-**🔗 Live demo:** https://rushikesh-book-finder.netlify.app
+**🔗 Live demo:** https://book-search-rushikesh.netlify.app
+
+**💻 Source code:** https://github.com/rushikesh-io/book-search-rushikesh
 
 **👤 Author:** Rushikesh Gaikwad ([@rushikesh-io](https://github.com/rushikesh-io))
 

@@ -1,5 +1,5 @@
 {
-  "name": "rushikesh-book-finder",
+  "name": "book-search-rushikesh",
   "author": "Rushikesh Gaikwad",
   "version": "1.0.0",
   "description": "Shelfwise - a responsive book search app powered by the Google Books API, built with HTML, Tailwind CSS and vanilla JavaScript.",
