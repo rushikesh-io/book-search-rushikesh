@@ -3,7 +3,7 @@
 A clean, responsive web app to **search books by title or author**, view their details, and keep favourites on a personal shelf.
 Built with **HTML, Tailwind CSS and vanilla JavaScript (ES modules)** — no frameworks.
 
-**🔗 Live demo:** _add your Netlify URL here_
+**🔗 Live demo:** https://shelfwise-book-finder.netlify.app
 
 ---
 
