@@ -1,0 +1,16 @@
+{
+  "name": "shelfwise-book-finder",
+  "version": "1.0.0",
+  "description": "Shelfwise - a responsive book search app powered by the Google Books API, built with HTML, Tailwind CSS and vanilla JavaScript.",
+  "private": true,
+  "scripts": {
+    "build": "tailwindcss -i ./src/input.css -o ./public/css/styles.css --minify",
+    "dev": "tailwindcss -i ./src/input.css -o ./public/css/styles.css --watch",
+    "start": "npx --yes serve public -l 5173"
+  },
+  "keywords": ["books", "google-books-api", "tailwindcss", "javascript"],
+  "license": "MIT",
+  "devDependencies": {
+    "tailwindcss": "3.4.17"
+  }
+}

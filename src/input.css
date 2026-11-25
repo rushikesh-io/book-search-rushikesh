@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { -webkit-tap-highlight-color: transparent; }
+  body { @apply bg-paper-50 text-ink-900 antialiased dark:bg-ink-950 dark:text-paper-100; }
+  :focus-visible { @apply outline-none ring-2 ring-clay-500 ring-offset-2 ring-offset-paper-50 dark:ring-offset-ink-950; }
+  dialog::backdrop { background: rgba(18, 17, 14, .6); backdrop-filter: blur(3px); }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition
+      disabled:cursor-not-allowed disabled:opacity-40;
+  }
+  .btn-primary { @apply btn bg-clay-500 text-white hover:bg-clay-600 active:bg-clay-700; }
+  .btn-ghost {
+    @apply btn border border-paper-300 bg-white/70 text-ink-800 hover:border-clay-400 hover:text-clay-600
+      dark:border-ink-700 dark:bg-ink-900 dark:text-paper-100 dark:hover:border-clay-400 dark:hover:text-clay-300;
+  }
+  .icon-btn {
+    @apply inline-flex h-10 w-10 items-center justify-center rounded-xl border border-paper-300 bg-white/70 text-ink-700
+      transition hover:border-clay-400 hover:text-clay-600 dark:border-ink-700 dark:bg-ink-900 dark:text-paper-200 dark:hover:text-clay-300;
+  }
+  .field {
+    @apply rounded-xl border border-paper-300 bg-white px-3 py-2 text-sm text-ink-900 placeholder:text-ink-500
+      focus:border-clay-500 focus:outline-none focus:ring-2 focus:ring-clay-500/30
+      dark:border-ink-700 dark:bg-ink-900 dark:text-paper-100;
+  }
+  .chip {
+    @apply rounded-full border border-paper-300 bg-white/60 px-3 py-1 text-xs font-medium text-ink-700 transition
+      hover:border-clay-400 hover:text-clay-600 dark:border-ink-700 dark:bg-ink-900 dark:text-paper-200 dark:hover:text-clay-300;
+  }
+  .card {
+    @apply rounded-2xl border border-paper-200 bg-white shadow-book dark:border-ink-800 dark:bg-ink-900;
+  }
+}
