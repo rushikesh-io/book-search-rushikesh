@@ -55,14 +55,30 @@ export function normalizeBook(item) {
   };
 }
 
-/** Shared fetch wrapper: turns HTTP and network failures into friendly Errors. */
-async function getJson(url, signal) {
+const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+/**
+ * Shared fetch wrapper: turns HTTP and network failures into friendly Errors.
+ * Dropped connections are retried (up to `retries` times) before giving up.
+ */
+async function getJson(url, signal, retries = 2) {
   let response;
   try {
     response = await fetch(url, { signal });
   } catch (err) {
     if (err.name === 'AbortError') throw err;
+    if (retries > 0) {
+      await wait(600);
+      if (signal?.aborted) throw new DOMException('Aborted', 'AbortError');
+      return getJson(url, signal, retries - 1);
+    }
     throw new Error('Network error — please check your internet connection and try again.');
+  }
+
+  // Temporary server hiccups (5xx) are worth one more try too.
+  if (response.status >= 500 && retries > 0) {
+    await wait(600);
+    return getJson(url, signal, retries - 1);
   }
 
   if (!response.ok) {
