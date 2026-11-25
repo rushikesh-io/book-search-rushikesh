@@ -1,5 +1,5 @@
 /**
- * app.js — application state and event wiring for Shelfwise.
+ * app.js — application state and event wiring for Book Search Rushikesh.
  * Data fetching lives in api.js, persistence in storage.js, markup in ui.js.
  */
 
@@ -202,13 +202,13 @@ function renderFavorites() {
   els.favList.innerHTML = ui.favoritesList(favorites);
 }
 
-/* ---------- Favourites ---------- */
+/* ---------- Favorites ---------- */
 
 function toggleFavorite(book) {
   const saved = store.toggleFavorite(book);
   refreshFavoriteButtons();
   if (state.modalBook?.id === book.id) renderModal(book);
-  announce(saved ? `Saved “${book.title}” to My Shelf` : `Removed “${book.title}” from My Shelf`);
+  announce(saved ? `Saved “${book.title}” to Favorites` : `Removed “${book.title}” from Favorites`);
 }
 
 function openDrawer() {
@@ -447,7 +447,7 @@ function bindEvents() {
     if (page >= 1 && page <= totalPages() && page !== state.page) runSearch({ page, scroll: true });
   });
 
-  // Result cards: details / favourite / retry (event delegation)
+  // Result cards: details / favorite / retry (event delegation)
   els.results.addEventListener('click', (e) => {
     const actionEl = e.target.closest('[data-action]');
     if (!actionEl) return;
@@ -461,7 +461,7 @@ function bindEvents() {
     if (action === 'favorite') toggleFavorite(book);
   });
 
-  // Favourites drawer
+  // Favorites drawer
   els.favToggle.addEventListener('click', () => (drawerIsOpen() ? closeDrawer() : openDrawer()));
   els.closeDrawer.addEventListener('click', closeDrawer);
   els.overlay.addEventListener('click', closeDrawer);
@@ -476,7 +476,7 @@ function bindEvents() {
     if (actionEl.dataset.action === 'remove-favorite') {
       store.removeFavorite(book.id);
       refreshFavoriteButtons();
-      announce(`Removed “${book.title}” from My Shelf`);
+      announce(`Removed “${book.title}” from Favorites`);
     }
   });
 
@@ -507,8 +507,8 @@ function bindEvents() {
   // Broken cover images (error events don't bubble, so listen in the capture phase)
   document.addEventListener('error', handleBrokenCover, true);
 
-  // Keep favourites in sync if the app is open in two tabs
-  window.addEventListener('storage', (e) => e.key === 'shelfwise:favorites' && refreshFavoriteButtons());
+  // Keep favorites in sync if the app is open in two tabs
+  window.addEventListener('storage', (e) => e.key === 'book-search-rushikesh:favorites' && refreshFavoriteButtons());
 }
 
 /* ---------- Boot ---------- */

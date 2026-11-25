@@ -82,7 +82,7 @@ export function bookCard(book, saved, index = 0) {
       </div>
       <button type="button" data-action="favorite" aria-pressed="${saved}"
         class="absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-full transition ${saved ? 'bg-clay-500 text-white' : 'bg-paper-100 text-ink-600 hover:text-clay-600 dark:bg-ink-800 dark:text-paper-200'}"
-        aria-label="${saved ? 'Remove from' : 'Add to'} My Shelf">${ICONS.bookmark(saved)}</button>
+        aria-label="${saved ? 'Remove from' : 'Add to'} Favorites">${ICONS.bookmark(saved)}</button>
     </div>
     <p class="flex-1 px-4 text-sm leading-relaxed text-ink-700 line-clamp-3 dark:text-paper-200">${escapeHtml(description)}</p>
     <div class="mt-4 flex items-center gap-2 border-t border-paper-200 p-3 dark:border-ink-800">
@@ -192,14 +192,14 @@ export function suggestionItems(list, term, activeIndex) {
     .join('');
 }
 
-/* ---------- Favourites drawer ---------- */
+/* ---------- Favorites drawer ---------- */
 
 export function favoritesList(favorites) {
   if (!favorites.length) {
     return `
       <li class="px-4 py-16 text-center">
         <div class="text-4xl" aria-hidden="true">🔖</div>
-        <p class="mt-3 font-display text-lg font-bold">Your shelf is empty</p>
+        <p class="mt-3 font-display text-lg font-bold">No favorites yet</p>
         <p class="mt-1 text-sm text-ink-600 dark:text-paper-300">Tap the bookmark on any book to save it here.</p>
       </li>`;
   }
@@ -216,7 +216,7 @@ export function favoritesList(favorites) {
             <span class="mt-0.5 block text-xs text-ink-500">${book.year ?? 'Year unknown'}</span>
           </span>
         </button>
-        <button type="button" data-action="remove-favorite" class="icon-btn h-9 w-9 shrink-0 hover:!border-red-400 hover:!text-red-600" aria-label="Remove ${escapeHtml(book.title)} from My Shelf">${ICONS.trash}</button>
+        <button type="button" data-action="remove-favorite" class="icon-btn h-9 w-9 shrink-0 hover:!border-red-400 hover:!text-red-600" aria-label="Remove ${escapeHtml(book.title)} from Favorites">${ICONS.trash}</button>
       </li>`
     )
     .join('');
@@ -250,7 +250,7 @@ export function bookDetails(book, saved) {
         </dl>
         <div class="mt-6 flex flex-wrap gap-2">
           <button type="button" data-action="favorite" aria-pressed="${saved}" class="${saved ? 'btn-primary' : 'btn-ghost'}">
-            ${ICONS.bookmark(saved)} ${saved ? 'On My Shelf — Remove' : 'Add to My Shelf'}
+            ${ICONS.bookmark(saved)} ${saved ? 'Remove from Favorites' : 'Add to Favorites'}
           </button>
           ${book.previewLink ? `<a href="${escapeHtml(book.previewLink)}" target="_blank" rel="noopener noreferrer" class="btn-ghost">${book.source === 'openlibrary' ? 'View on Open Library' : 'Preview on Google Books'} ${ICONS.external}</a>` : ''}
         </div>

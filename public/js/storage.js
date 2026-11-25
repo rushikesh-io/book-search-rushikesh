@@ -1,11 +1,11 @@
 /**
- * storage.js — favourites ("My Shelf") and theme persisted in localStorage.
+ * storage.js — favorites and theme persisted in localStorage.
  * All access is wrapped in try/catch because storage can be disabled
  * (private mode, blocked cookies) and the app must keep working anyway.
  */
 
-const FAVORITES_KEY = 'shelfwise:favorites';
-const THEME_KEY = 'shelfwise:theme';
+const FAVORITES_KEY = 'book-search-rushikesh:favorites';
+const THEME_KEY = 'book-search-rushikesh:theme';
 
 function read(key, fallback) {
   try {

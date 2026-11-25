@@ -1,6 +1,6 @@
-# 📚 Shelfwise — Book Finder
+# 📚 Book Search Rushikesh
 
-A clean, responsive web app to **search books by title or author**, view their details, and keep favourites on a personal shelf.
+A clean, responsive web app to **search books by title or author**, view their details, and save your favorite books.
 Built with **HTML, Tailwind CSS and vanilla JavaScript (ES modules)** — no frameworks.
 
 **🔗 Live demo:** https://book-search-rushikesh.netlify.app
@@ -18,7 +18,7 @@ Built with **HTML, Tailwind CSS and vanilla JavaScript (ES modules)** — no fra
 - 📖 Each book shows **title, author(s), cover, published year, publisher, short description and preview link**
 - ⏳ **Loading indicator** (spinner + skeleton cards) while the API request is running
 - 🚫 Friendly empty state: **"No books found. Please try another search."**
-- 🔖 **My Shelf (favourites)** saved in `localStorage`
+- 🔖 **Favorites** saved in `localStorage`
   - click a saved book to open its full details again
   - remove button for each saved book
   - stays in sync across browser tabs
@@ -62,7 +62,7 @@ Built with **HTML, Tailwind CSS and vanilla JavaScript (ES modules)** — no fra
 │   └── js/
 │       ├── app.js          # State + event wiring
 │       ├── api.js          # API calls, data normalisation, fallback
-│       ├── storage.js      # localStorage: favourites + theme
+│       ├── storage.js      # localStorage: favorites + theme
 │       └── ui.js           # Pure rendering helpers (cards, modal, pagination…)
 ├── src/input.css           # Tailwind source (custom components)
 ├── tailwind.config.js      # Theme: colours, fonts, animations
