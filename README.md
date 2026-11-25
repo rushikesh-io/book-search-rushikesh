@@ -3,7 +3,9 @@
 A clean, responsive web app to **search books by title or author**, view their details, and keep favourites on a personal shelf.
 Built with **HTML, Tailwind CSS and vanilla JavaScript (ES modules)** — no frameworks.
 
-**🔗 Live demo:** https://shelfwise-book-finder.netlify.app
+**🔗 Live demo:** https://rushikesh-book-finder.netlify.app
+
+**👤 Author:** Rushikesh Gaikwad ([@rushikesh-io](https://github.com/rushikesh-io))
 
 ---
 
@@ -93,6 +95,12 @@ GET https://openlibrary.org/search.json?title=dune&page=1&limit=12      (fallbac
 
 No API key is required.
 
+## 👤 Author
+
+**Rushikesh Gaikwad** · Aspiring Full-Stack Developer, Mumbai
+- GitHub: [@rushikesh-io](https://github.com/rushikesh-io)
+- Portfolio: [rushikeshux.framer.ai](https://rushikeshux.framer.ai/)
+
 ## 📄 License
 
-MIT
+MIT © Rushikesh Gaikwad
